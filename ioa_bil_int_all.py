@@ -21,7 +21,7 @@ abs_file.info()
 SAVE_DATA = False
 
 
-#now find flux for every energy bin for given col dens x and ionisa energy y.
+#now find flux for every energy bin for given ion energy x and col den y.
 
 all_energy = ioa.E_mid(energies)
 all_flux = []
@@ -57,6 +57,7 @@ else:
 
 plt.xlabel('Energy [keV]')
 plt.ylabel('Flux')
+plt.title(r'log(N$_H$) = %s, log$\xi$ = %s' % (y,x))
 plt.show()
 
     
