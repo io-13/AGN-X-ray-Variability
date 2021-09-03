@@ -39,7 +39,6 @@ for _ in range(0,len(all_energy)):
 
 #plot interpolated spectrum
 plt.figure()    
-plt.plot(all_flux)
 
 #log x axis    
 plt.figure()
@@ -47,7 +46,7 @@ ax=plt.subplot(111)
 ax.set_xscale('log')
 ax.tick_params(which='minor',labelbottom=False)
 
-ax.plot(all_energy, all_flux)
+ax.plot(all_energy, all_flux, color = 'k', lw = 0.8)
 
 if SAVE_DATA == True:
     with open("%s_%s.txt" % (x,y), "w") as f:
@@ -56,6 +55,8 @@ if SAVE_DATA == True:
 else:
     print('Data unsaved')
 
+plt.xlabel('Energy [keV]')
+plt.ylabel('Flux')
 plt.show()
 
     
