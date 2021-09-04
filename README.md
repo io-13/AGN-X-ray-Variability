@@ -6,7 +6,7 @@ ioa_functions: Functions needed for the interpolation routine.
 
 F_var_functions: functions needed to generate the excess variance spectra.
 
-ioa_bil_int_all: Bilinear interpolation code. Input x,y (logxi,lognh) and index of an energy value in the bin list and recieve a flux at this energy and ionisation/column density. Using flux at nearest (logxi,lognh) points in the .fits file for the interpolation. Genearates new flux at (logxi,lognh) and energy, which is then iterated all energies to produce the RMS spectra.
+ioa_bil_int_all: Bilinear interpolation code. Input x,y (logxi,lognh) and recieve flux at this energy and ionisation/column density, using flux at nearest (logxi,lognh) points in the .fits file for the interpolation. Genearates new flux at (logxi,lognh) and energy, which is then iterated all energies to produce the RMS spectra.
 
 F_var_ie_interval: For constant column density, takes 10 values of flux at values of ie energy in rangeie_l to ie_h. [we find these values of flux at energy ind_e (index of energy in .fits dataset) and (ie,col) using interpolation from ioa_functions]. Calc F_var for each energy bin from this.[note: energy range has been cropped between indexes 4422 and 6554 (0.5 to 10keV) as we are interested in the iron lines at ~7keV].
 
