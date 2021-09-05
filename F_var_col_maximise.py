@@ -34,7 +34,7 @@ cmin = -2
 n = 6
 step = (cmax-cmin)/n
 #constant value of ionisation
-ie_ = 4
+ie_ = 5
 
 co_r = list(np.zeros(n))
 
@@ -94,20 +94,31 @@ for i in F_hrange:
     Fe_line.append(max(i))
 
 
-F_p = [[] for i in range(n)]
-for i in range(n):
-    for j in F_lrange[i]:
-        if j > 9e-06:
-            F_p[i].append(j)
+#F_p = [[] for i in range(n)]
+#for i in range(n):
+    #for j in F_lrange[i]:
+        #if j != 0:
+            #F_p[i].append(j)
+            
 F_lmean = []
-for i in F_p:
+for i in F_lrange:
     F_lmean.append(np.mean(i))
 
+F_l1 = [[] for i in range(n)]
+for i in range(n):
+    for j in F_lrange[i]:
+        if j > F_lmean[i]:
+            F_l1[i].append(j)
+F_l1mean = []
+for i in F_l1:
+    F_l1mean.append(np.mean(i))
+        
 #quantative measure of size of iron line
 ratio = []
 
 for i in range(n):
-    ratio.append(Fe_line[i]/F_lmean[i])
+    ratio.append(Fe_line[i]/(F_l1mean[i]-min(F_lrange[i])))
+
 
 #each range of column densities (with n entries) corresponds to the ratio at
 #the same index
@@ -126,7 +137,7 @@ ax.tick_params(which='minor',labelbottom=False)
    
 ax.plot(all_energy, F_var[ratio.index(max(ratio))], color = 'red', lw=0.8)
 
-ax.set_ylim(ymin=0)
+
 ax.set_title(r'log(N$_H$) range = [%s,%s], log$\xi$ = %s' % (co_r[ratio.index(max(ratio))][0], co_r[ratio.index(max(ratio))][1], ie_ ))
 ax.set_ylabel(r'$F_{var}$')
 ax.set_xlabel('Energy [keV]')

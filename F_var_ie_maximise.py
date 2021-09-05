@@ -35,7 +35,7 @@ imin = 2
 n = 6
 step = (imax-imin)/n
 #constant col den
-col_den = -0.5
+col_den = 1
 
 ie_r = list(np.zeros(n))
 
@@ -96,21 +96,24 @@ for i in F_hrange:
     
 #works
 
-F_p = [[] for i in range(n)]
-for i in range(n):
-    for j in F_lrange[i]:
-        if j > 9e-06:
-            F_p[i].append(j)
 F_lmean = []
-for i in F_p:
+for i in F_lrange:
     F_lmean.append(np.mean(i))
 
+F_l1 = [[] for i in range(n)]
+for i in range(n):
+    for j in F_lrange[i]:
+        if j > F_lmean[i]:
+            F_l1[i].append(j)
+F_l1mean = []
+for i in F_l1:
+    F_l1mean.append(np.mean(i))
+        
 #quantative measure of size of iron line
-#bigger the better
 ratio = []
 
 for i in range(n):
-    ratio.append(Fe_line[i]/F_lmean[i])
+    ratio.append(Fe_line[i]/(F_l1mean[i]-min(F_lrange[i])))
 
 #plots the graph for max ratio/biggest relative iron line
 #log x axis    
