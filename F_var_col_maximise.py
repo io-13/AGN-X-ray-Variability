@@ -92,13 +92,6 @@ for i in range(n):
 Fe_line = []
 for i in F_hrange:
     Fe_line.append(max(i))
-
-
-#F_p = [[] for i in range(n)]
-#for i in range(n):
-    #for j in F_lrange[i]:
-        #if j != 0:
-            #F_p[i].append(j)
             
 F_lmean = []
 for i in F_lrange:
