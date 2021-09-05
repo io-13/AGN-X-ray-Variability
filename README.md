@@ -17,4 +17,4 @@ F_var_ie_maximise: Calculates RMS spectra for n ranges of ionisation energies be
 F_var_col_maximise: Same routine as F_var_ie_maximise but with ranges of column densities and constant ionisation. 
 
 
-[Note that the maximise routines may plot graphs which don't have a flat continuum instead of those which maximise the iron line, these outputs can be disregarded and the next highest ratio used instead].
+[Note that the maximise routines may plot graphs which have high absorption activity at lower energies instead of those which maximise the iron line, these outputs can be disregarded and the next highest ratio used instead].
