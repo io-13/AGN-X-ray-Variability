@@ -15,4 +15,6 @@ F_var_col_interval: Same routine as F_var_ie_interval but for constant ionisatio
 F_var_ie_maximise: Calculates RMS spectra for n ranges of ionisation energies between imax and imin, with the ranges having intervals of step. Ratio measurement calculates the relative strength of the Fe line and plots the figure with parameters which maximise its amplitude. Ratios and ionisation ranges are also returned. Column density is constant.
 
 F_var_col_maximise: Same routine as F_var_ie_maximise but with ranges of column densities and constant ionisation. 
+
+
 [Note that the maximise routines may plot graphs which don't have a flat continuum instead of those which maximise the iron line, these outputs can be disregarded and the next highest ratio used instead].
